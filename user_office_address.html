@@ -10,7 +10,7 @@
 			src="https://code.jquery.com/jquery-3.2.1.min.js"
 			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 			crossorigin="anonymous"></script>
-	<script src="/Antagosoft/js/ajax-action.js"></script>
+	<script src="/js/ajax-action.js"></script>
 
 </head>
 
@@ -167,25 +167,21 @@
 							<div class="l_col adrs">
 								<h2>Add New Address</h2>
 
-								<form action="" method="">
+								<form action="" method="" name="set_address_form">
 									<div class="field">
 										<label>Name *</label>
 										<input type="text" value="" placeholder="" class="vl_empty" />
 									</div>
 									<div class="field">
 										<label>Your city *</label>
-										<select class="vl_empty">
-											<option class="plh"></option>
-											<option value="1">City 1</option>
-											<option value="2">City 2</option>
+										<select class="vl_empty" name="city_id">
+											<option value="0" class="plh">Please select</option>
 										</select>
 									</div>
 									<div class="field">
 										<label>Your area *</label>
-										<select>
-											<option class="plh"></option>
-											<option>Area 1</option>
-											<option>Area 2</option>
+										<select name="area_id">
+											<option class="plh">Please select City</option>
 										</select>
 									</div>
 
@@ -209,25 +205,8 @@
 								</form>
 							</div>
 
-							<div class="r_col">
-								<h2>My Addresses</h2>
+							<div class="r_col" id="my_address_area">
 
-								<div class="uo_adr_list">
-									<div class="item">
-										<h3>HOME Address</h3>
-										<p>Dubai, Business Bay Area, Sheikh Zayed Road, Single </p>
-										<div class="actbox">
-											<a href="#" class="bcross"></a>
-										</div>
-									</div>
-									<div class="item">
-										<h3>Work Address</h3>
-										<p>Dubai, Business Bay Area, Sheikh Zayed Road, Single<br/>Business Tower, Suite 2204</p>
-										<div class="actbox">
-											<a href="#" class="bcross"></a>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
