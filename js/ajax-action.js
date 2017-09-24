@@ -44,9 +44,9 @@ function changeSelect($selector,data){
 }
 
 function delete_address(id){
-    if(confirm("Are you sure want to delete this address?")){
+    if(confirm("Are you sure ?")){
         $.post('/ajax-action.php',{'action':'delete','id':id},function (data) {
-            console.log(data);
+
             get_my_address($('#my_address_area'));
         });
     }
