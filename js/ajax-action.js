@@ -4,6 +4,7 @@ $(function(){
     var area = form.find('[name="area_id"]');
     var myAddressArea = $('#my_address_area');
 
+
     load_city(city);
 
     city.on("change",function(){

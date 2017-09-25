@@ -18,8 +18,7 @@ if($action === 'getCity'){
     /** @var PDO $DBH */
     $areas = $DBH->query('SELECT id,name FROM city_area WHERE city_id="'.$city_id.'" order by name, id');
     $areas->setFetchMode(PDO::FETCH_ASSOC);
-    /*print_r($areas);
-    print_r($DBH);*/
+
     while($row=$areas->fetch()){
         $result[$row['id']] = $row['name'];
 
@@ -34,7 +33,7 @@ if($action === 'getCity'){
     foreach($addresses as $address ) {
         $items .= '<div class="item">
 										<h3>'.$address['type'].'</h3>
-										<p>'.$address['city_name'].','.$address['area_name']. ','.$address['street']. ','.$address['house'].'<br>'.$address['additional']. ' </p>
+										<p>'.$address['city_name'].', '.$address['area_name']. ', '.$address['street']. ', '.$address['house'].'<br>'.$address['additional']. ' </p>
 										<div class="actbox">
 											<a href="#delete" data-id="'.$address['id'].'" class="bcross"></a>
 										</div>
@@ -49,4 +48,17 @@ if($action === 'getCity'){
 }elseif($action === "delete"){
     $id = (int)$_REQUEST['id'];
     $DBH->query("DELETE FROM main_info WHERE id='".$id."' LIMIT 1");
+}
+if ($_POST['button-submit']=='add address'){
+    $name= trim(strip_tags($_POST['name']));
+    $street= trim(strip_tags($_POST['street']));
+    $house= trim(strip_tags($_POST['house']));
+    $additional= trim(strip_tags($_POST['additional']));
+    $city_id=$_POST['city_id'];
+    $area_id=$_POST['area_id'];
+    $args=array($name, $city_id, $area_id, $street, $house, $additional );
+    $STH=$DBH->prepare("INSERT INTO main_info (name, city_id, area_id, street, house, additional) VALUES (?, ?, ?, ?, ?, ?)");
+    if ($STH->execute($args)){
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }

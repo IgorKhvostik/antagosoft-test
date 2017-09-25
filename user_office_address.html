@@ -167,10 +167,10 @@
 							<div class="l_col adrs">
 								<h2>Add New Address</h2>
 
-								<form action="" method="" name="set_address_form">
+								<form action="ajax-action.php" method="post" name="set_address_form">
 									<div class="field">
 										<label>Name *</label>
-										<input type="text" value="" placeholder="" class="vl_empty" />
+										<input type="text" value="" placeholder="" class="vl_empty" name="name" />
 									</div>
 									<div class="field">
 										<label>Your city *</label>
@@ -187,20 +187,20 @@
 
 									<div class="field">
 										<label>Street</label>
-										<input type="text" value="" placeholder="" class="vl_empty" />
+										<input type="text" value="" placeholder="" class="vl_empty" name="street" />
 									</div>
 									<div class="field">
 										<label>House # </label>
-										<input type="text" value="" placeholder="House Name / Number" />
+										<input type="text" value="" placeholder="House Name / Number" name="house" />
 									</div>
 
 									<div class="field">
 										<label class="pos_top">Additional information</label>
-										<textarea></textarea>
+										<textarea name="additional"></textarea>
 									</div>
 
 									<div class="field">
-										<input type="submit" value="add address" class="green_btn" />
+										<input type="submit" value="add address" class="green_btn" name="button-submit" />
 									</div>
 								</form>
 							</div>
